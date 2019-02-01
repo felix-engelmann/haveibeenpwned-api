@@ -13,7 +13,7 @@ def check_password(hash):
     if len(hash) < 5:
         return Response("Anonymity set too large, min 5 digits", 400)
 
-    p = Pwnd("../first-prep.txt")
+    p = Pwnd("/srv/pwned.txt")
     res = p.lookup(hash)
 
     return '\n'.join(res)
