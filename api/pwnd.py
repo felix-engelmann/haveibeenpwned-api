@@ -15,8 +15,6 @@ class Pwnd():
 
         query = ("%%0%dX"%(len(query)))%(int(query,16))
 
-        print(query)
-
         with open(self.file) as f:
             L = 0
             R = self.records - 1
@@ -63,5 +61,5 @@ class Pwnd():
                     elif l[:len(query)] > query:
                         break
                     else:
-                        hits.append("%s:%s"%(l[:40],int(l[41:])))
+                        hits.append("%s:%s"%(l[len(query):40],int(l[41:])))
                 return hits
