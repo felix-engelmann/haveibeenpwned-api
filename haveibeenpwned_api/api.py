@@ -1,5 +1,5 @@
 from flask import Flask, Response
-from .pwnd import Pwnd
+from .pwned import Pwned
 #import pwnd
 
 app = Flask(__name__)
@@ -14,7 +14,7 @@ def check_password(hash):
     if len(hash) < 5:
         return Response("Anonymity set too large, min 5 digits", 400)
 
-    p = Pwnd("/srv/pwned.txt")
+    p = Pwned("/srv/pwned.txt")
     res = p.lookup(hash)
 
     return '\n'.join(res)

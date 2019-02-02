@@ -1,7 +1,7 @@
 import os
 
 
-class Pwnd():
+class Pwned():
 
     def __init__(self, file):
 
