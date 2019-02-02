@@ -57,3 +57,7 @@ source ./env/bin/activate
 python api/api.py
 ```
 which serves the api at port 5000.
+
+## Usage Example
+
+To integrate the check into, e.g. a Django app, you can use https://github.com/jamiecounsell/django-pwned-passwords and set the `PWNED_VALIDATOR_URL` in you django settings to point to your custom instance at `https://your-domain.com:5000/range/{short_hash}`
