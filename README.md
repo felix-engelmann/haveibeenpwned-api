@@ -38,6 +38,12 @@ only the `pwned.txt` file is required at the service.
 
 The api runs as a Flask app. The easiest way is to deploy it as a docker service:
 
+```
+docker run -d -v /path_to_pwned.txt:/srv/pwned.txt -p 5000:5000 felixengelmann/haveibeenpwned-api
+```
+
+or rebuild the image
+
 ```bash
 docker build -t haveibeenpwned-api:latest .
 docker run -d -v /path_to_pwned.txt:/srv/pwned.txt -p 5000:5000 haveibeenpwned-api
