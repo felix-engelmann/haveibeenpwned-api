@@ -54,7 +54,7 @@ Alternatively, you can run the Flask app in a virtual environment
 ```bash
 virtualenv env
 source ./env/bin/activate
-python api/api.py
+python run.py
 ```
 which serves the api at port 5000.
 

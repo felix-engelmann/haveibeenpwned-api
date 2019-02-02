@@ -1,5 +1,6 @@
 from flask import Flask, Response
-from pwnd import Pwnd
+from .pwnd import Pwnd
+#import pwnd
 
 app = Flask(__name__)
 
@@ -18,5 +19,5 @@ def check_password(hash):
 
     return '\n'.join(res)
 
-if __name__ == '__main__':
+def main():
     app.run(host='0.0.0.0')
