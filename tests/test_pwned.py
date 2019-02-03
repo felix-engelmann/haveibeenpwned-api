@@ -1,15 +1,6 @@
-import uuid
-import string
 import unittest
-from random import choice
 import os
-from . import app, Pwned
-
-
-def get_random_string(length):
-    return "".join(
-        choice(string.ascii_letters) for _ in range(length)
-    )
+from . import Pwned
 
 
 class PwnedTestCase(unittest.TestCase):
@@ -21,15 +12,15 @@ class PwnedTestCase(unittest.TestCase):
     def test_lookup(self):
         ret = self.pwnd.lookup("00001")
 
-        self.assertEqual(ret[0][:35],'0005DE2A9668A41F6A508AFB6A6FC4A5610')
-        self.assertEqual(ret[-1][:35],'FDE50C816E371829CFBD439F00ED2FE0891')
+        self.assertEqual(ret[0][:35], '0005DE2A9668A41F6A508AFB6A6FC4A5610')
+        self.assertEqual(ret[-1][:35], 'FDE50C816E371829CFBD439F00ED2FE0891')
         self.assertEqual(len(ret), 571)
 
     def test_lookup_first(self):
         ret = self.pwnd.lookup("00000")
 
-        self.assertEqual(ret[0][:35],'0005AD76BD555C1D6D771DE417A4B87E4B4')
-        self.assertEqual(ret[-1][:35],'FFF5C4A486B528DD84D1F1D3F41A06E9256')
+        self.assertEqual(ret[0][:35], '0005AD76BD555C1D6D771DE417A4B87E4B4')
+        self.assertEqual(ret[-1][:35], 'FFF5C4A486B528DD84D1F1D3F41A06E9256')
         self.assertEqual(len(ret), 632)
 
     def test_lookup_varlen(self):

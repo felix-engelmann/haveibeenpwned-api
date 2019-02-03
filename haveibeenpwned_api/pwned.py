@@ -9,18 +9,18 @@ class Pwned():
             self.record_len = len(f.readline())
         self.records = os.stat(file).st_size // self.record_len
         self.file = file
-        self.jumpsize=100
+        self.jumpsize = 100
 
     def lookup(self, query):
 
-        query = ("%%0%dX"%(len(query)))%(int(query,16))
+        query = ("%%0%dX" % (len(query))) % (int(query, 16))
 
         with open(self.file) as f:
             L = 0
             R = self.records - 1
 
             contained = False
-            m=0
+            m = 0
             while L <= R:
                 m = (L + R) // 2
                 f.seek(self.record_len * m)
@@ -61,5 +61,5 @@ class Pwned():
                     elif l[:len(query)] > query:
                         break
                     else:
-                        hits.append("%s:%s"%(l[len(query):40],int(l[41:])))
+                        hits.append("%s:%s" % (l[len(query):40], int(l[41:])))
                 return hits

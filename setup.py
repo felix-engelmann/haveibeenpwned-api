@@ -24,7 +24,7 @@ setup(
     name=module.__name__.replace("_", "-"),
     version='0.1.0',
     platforms="all",
-    packages=find_packages(exclude=('tests','scripts')),
+    packages=find_packages(exclude=('tests', 'scripts')),
     package_data={
         module.__name__: walker(
             os.path.dirname(module.__file__)
