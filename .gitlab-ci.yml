@@ -5,7 +5,7 @@ stages:
 build:
   stage: build
   image:
-    name: gcr.io/kaniko-project/executor:debug-v0.16.0
+    name: gcr.io/kaniko-project/executor:debug
     entrypoint: [""]
   script:
     - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
@@ -14,7 +14,7 @@ build:
 build-hub:
   stage: build
   image:
-    name: gcr.io/kaniko-project/executor:debug-v0.16.0
+    name: gcr.io/kaniko-project/executor:debug
     entrypoint: [""]
   script:
     - echo "{\"auths\":{\"https://index.docker.io/v1/\":{\"username\":\"felixengelmann\",\"password\":\"$DOCKER_HUB_TOKEN\"}}}" > /kaniko/.docker/config.json
