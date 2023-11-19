@@ -1,4 +1,4 @@
-FROM python:3.11
+FROM python:3.9.18-bullseye
 MAINTAINER Felix Engelmann "fe-docker@nlogn.org"
 COPY . /app
 WORKDIR /app
