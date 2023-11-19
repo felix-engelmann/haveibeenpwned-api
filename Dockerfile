@@ -1,4 +1,4 @@
-FROM python:3.9
+FROM python:latest
 MAINTAINER Felix Engelmann "fe-docker@nlogn.org"
 COPY . /app
 WORKDIR /app
